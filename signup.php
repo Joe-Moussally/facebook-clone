@@ -18,10 +18,10 @@ $response = [];
 if($num_rows == 1){
     echo "used";
 }else{
-    $query = $mysqli->prepare("INSERT INTO users (username, password, email, role) VALUES (?, ?, ?, 0)");
-    $query->bind_param("sss",$username, $password, $email);
+    $query = $mysqli->prepare("INSERT INTO `users` (`id`, `username`, `email`, `password`, `profile_picture`, `role`) VALUES (NULL, ?, ?, ?, '', '0');");
+    $query->bind_param("sss",$username, $email, $password);
     $query->execute();
-    echo  "ok";  
+    echo  "success";  
 }
 
 ?>

@@ -4,23 +4,23 @@ document.getElementById("signup-button").addEventListener("click", function (eve
         const username = document.getElementById("username").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-        debugger
 
-        let data = {
-            username,
-            email,
-            password
-        }
+        let data = new FormData();
+            data.append('username',username) ,
+            data.append('email', email);
+            data.append('password', password);
 
         let url = 'http://facebook/signup.php';
         axios({
             method: 'POST',
             url: url,
-            params: data
+            data: data
         })
             .then(function (response) {
-                if (response.data === 'ok') {
-                    window.location.href = "http://facebook/html/login.html";
+                if (response.data === 'success') {
+                    console.log(response)
+                    alert("SUCCESS")
+                    window.location.replace("http://facebook/html/login.html");
                 }
             });
     }
