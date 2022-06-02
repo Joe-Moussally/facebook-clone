@@ -19,12 +19,11 @@ document.getElementById("signup-button").addEventListener("click", function (eve
             .then(function (response) {
                 if (response.data === 'success') {
                     console.log(response)
-                    alert("SUCCESS")
                     window.location.replace("http://facebook/html/login.html");
                 }
             });
     }
     else {
-        alert("Password does not match");
+        document.getElementById('status').innerHTML = "Password does not match";
     }
 });
