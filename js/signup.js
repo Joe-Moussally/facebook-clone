@@ -1,3 +1,10 @@
+let loginButton = document.getElementById('login-button')
+
+//redirect to login
+loginButton.addEventListener('click', () => {
+    window.location.replace("http://facebook/html/login.html");
+})
+
 document.getElementById("signup-button").addEventListener("click", function (event) {
     if (document.getElementById("password").value == document.getElementById("password2").value) {
         event.preventDefault();
