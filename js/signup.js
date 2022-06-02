@@ -1,17 +1,18 @@
-document.getElementById("sign-up-btn").addEventListener("click", function (event) {
-    if (document.getElementById("password").value == document.getElementById("comfirmPassword").value) {
+document.getElementById("signup-button").addEventListener("click", function (event) {
+    if (document.getElementById("password").value == document.getElementById("password2").value) {
         event.preventDefault();
         const username = document.getElementById("username").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         debugger
+
         let data = {
             username,
             email,
             password
         }
 
-        let url = 'http://foodity/backend/backend/signup.php';
+        let url = '../signup.php';
         axios({
             method: 'POST',
             url: url,
