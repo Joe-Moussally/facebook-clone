@@ -12,7 +12,7 @@ $query->fetch();
 $response = [];
 
 if($num_rows == 0){
-    $response["response"] = "Not Found";
+    $response["response"] = "not found";
 }else{
     $response["response"] = "success";
     $response["user_id"] = $id;

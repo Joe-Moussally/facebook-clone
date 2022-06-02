@@ -1,4 +1,5 @@
 let signupButton = document.getElementById('new-account');
+let statusDiv = document.getElementById('status');
 
 //redirect to signup
 signupButton.addEventListener('click', () => {
@@ -23,11 +24,19 @@ document.getElementById("login-btn").addEventListener("click", (event) => {
         data: data
     })
         .then(function (response) {
-            console.log(response)
+
             let result = response.data;
-            let id = result.user_id;
-            window.localStorage.setItem('user_id', id);
-            window.location.replace("http://facebook/html/home.html");
+            if (result.response == 'not found') {
+                document.getElementById("email").value = ''
+                document.getElementById("password").value = ''
+                statusDiv.innerHTML = 'email/password is incorrect'
+            } else if (result.response == 'success') {
+                console.log(response)
+                
+                let id = result.user_id;
+                window.localStorage.setItem('user_id', id);
+                window.location.replace("http://facebook/html/home.html");
+            }
 
         });
 });
