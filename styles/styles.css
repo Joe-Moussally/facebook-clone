@@ -68,7 +68,7 @@ body {
     align-items: center;
     background-color: white;
     border-radius: 6px;
-    height: 350px;
+    height: 490px;
     width: 396px;
     padding: 15px 15px 24px 15px;
     box-shadow: 0px 3px 7px rgba(128, 128, 128, 0.434);
@@ -122,19 +122,6 @@ body {
     height: 0.7px;
     width: 100%;
     margin: 10px 0;
-}
-
-/*forgot pasword button*/
-#forgot-password {
-    margin: 0px 0;
-    background: none;
-    border: none;
-    color: dodgerblue;
-}
-
-#forgot-password:hover {
-    text-decoration: underline;
-    cursor: pointer;
 }
 
 /* create new account */
@@ -263,3 +250,30 @@ footer section {
         justify-content: center;
     }
 }
+
+#signup-button {
+    width: 290px;
+    height: 52px;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: dodgerblue;
+    color: white;
+}
+
+#signup-button:hover, #login-button:hover {
+    cursor: pointer;
+}
+
+#login-button {
+    width: 190px;
+    height: 46px;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: limegreen;
+    color: white;
+}
+

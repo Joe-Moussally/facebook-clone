@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/styles.css">
-    <title>Facebook - log in or sign up</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Facebook - log in</title>
 </head>
 
 <body>
@@ -27,18 +28,17 @@
 
             <div>
 
-                <input type="email" name="mail" placeholder="Email adress or phone number">
-                <input type="password" name="password" placeholder="Password">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="email" name="mail" placeholder="Email adress" id="email">
+                <input type="password" name="password" placeholder="Password" id="password">
+                <input type="password" name="password" placeholder="Confirm Password" id="password2">
 
-                <button type="submit" id="login-btn">Log In</button>
+                <button type="submit" id="signup-button">Sign Up</button>
 
-                <button id="forgot-password">Forgotten password?</button>
                 <div class="hr"></div><!--horizental line in CSS-->
-                <button id="new-account">Create New Account</button>       
+                <button id="login-button">Login</button>       
     
             </div>
-
-            <span><button><strong>Create a Page</strong></button>&nbspfor a celebrity, brand or business.</span>
 
         </div>
 
@@ -46,61 +46,6 @@
 
 </body>
 
-<!-----------------FOOTER SECTION----------------->
-<footer>
-
-    <div>
-        <!-- languages section -->
-        <ul id="footer-languages">
-            <li>English (UK)</li>
-            <li>العربية</li>
-            <li>Français (France)</li>
-            <li>Deutsch</li>
-            <li>Español</li>
-            <li>Русский</li>
-            <li>Português</li>
-            <li>Italiano</li>
-            <li><button>+</button></li>
-        </ul>
-
-        <div class="hr"></div>
-
-        <ul id="footer-settings">
-            <li>Sign Up</li>
-            <li>Log In</li>
-            <li>Messenger</li>
-            <li>Facebook Lite</li>
-            <li>Watch</li>
-            <li>Places</li>
-            <li>Games</li>
-            <li>Marketplace</li>
-            <li>Facebook Pay</li>
-            <li>Oculus</li>
-            <li>Portal</li>
-            <li>Instagram</li>
-            <li>Bulletin</li>
-            <li>Local</li>
-            <li>Fundraisers</li>
-            <li>Services</li>
-            <li>Voting Information Center</li>
-            <li>Groups</li>
-            <li>About</li>
-            <li>Create Ad</li>
-            <li>Create Page</li>
-            <li>Developers</li>
-            <li>Careers</li>
-            <li>Privacy</li>
-            <li>Cookies</li>
-            <li>AdChoices</li>
-            <li>Terms</li>
-            <li>Help</li>
-        </ul>
-
-        <section><span>Meta © 2022</span></section>
-
-    </div>
-
-
-</footer>
-
 <html>
+
+<script src="../js/signup.js"></script>
