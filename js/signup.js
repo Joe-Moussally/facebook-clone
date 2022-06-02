@@ -12,7 +12,7 @@ document.getElementById("signup-button").addEventListener("click", function (eve
             password
         }
 
-        let url = '../signup.php';
+        let url = 'http://facebook/signup.php';
         axios({
             method: 'POST',
             url: url,
@@ -20,7 +20,7 @@ document.getElementById("signup-button").addEventListener("click", function (eve
         })
             .then(function (response) {
                 if (response.data === 'ok') {
-                    window.location.href = "http://foodity/backend/draft/login.html";
+                    window.location.href = "http://facebook/html/login.html";
                 }
             });
     }
