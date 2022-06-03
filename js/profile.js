@@ -1,6 +1,8 @@
 let profileId = localStorage.getItem('profile_id') //getting id of profile clicked on
 let url1 = 'http://facebook/profile.php';
 let url2 = 'http://facebook/get_profile_posts.php'
+let url3 = 'http://facebook/get_post_comments.php'
+var postsArray;
 
 //HTML Elements
 let username = document.getElementById('profile-username')
@@ -41,6 +43,14 @@ axios({
 
     //populating ul
     Response.data.forEach((post) => {
+
+        let postId = post.post_id;
+
+        let data = new FormData()
+        data.append('post_id',postId)
+
+        
+
         postsUl.innerHTML += '<li id="'+post.post_id+'">'+
         '<div class="post-header">'+
         '<img src="'+post.profile_picture+'" class="post-header-img">'+
@@ -57,14 +67,9 @@ axios({
         '<div class="add-comment"></div>'+
         '<div class="post-comments">'+
         '<span class="comment-label">Comments</span>'+
-        '<ul class="post-comments-ul">'+
-        '<li>'+
-        '<span class="post-comment-username">sheldon</span>'+
-        '<span class="post-comment">Livelong and prosper</span>'+
-        '</li></ul></div>'+
-        '<div class="post-footer">'+post.created_at+'</div>'+
+        '<ul class="post-comments-ul" id="'+post.post_id+'-comments">'+
+        '</ul></div><div class="post-footer">'+post.created_at+'</div>'+
         '</div><div class="hr"></div></li>'
-
     })
-
+    
 })
