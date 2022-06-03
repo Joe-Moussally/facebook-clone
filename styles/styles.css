@@ -220,6 +220,8 @@ body {
     max-width: 860px;
     background-color: white;
     padding: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 #profile-header img {
@@ -228,4 +230,24 @@ body {
     border: 2px white solid;
     outline: 2px dodgerblue solid;
     object-fit: cover;
+}
+
+#profile-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#profile-info {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px red solid;
+}
+
+#profile-header h1 {
+    font-size: 43px;
 }
