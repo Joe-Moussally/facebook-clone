@@ -411,3 +411,52 @@ ul {
     background-color: rgb(21, 22, 83);
     transition: .3s;
 }
+
+/* ---------------------------------UPLOAD PHOTO---------------------------------
+---------------------------------------------------------------------------- */
+
+#new-post {
+    font-size: 64px;
+}
+
+#choose-photo {
+    width: 100%;
+    margin: 32px 0;
+}
+
+#choose-photo h2 {
+    margin-bottom: 10px;
+}
+#description {
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+#description textarea {
+    max-height: 200px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 10px;
+    border: 2px dodgerblue solid;
+    border-radius: 5px;
+}
+
+#description textarea:focus {    
+    outline: 3px rgba(30, 143, 255, 0.448) solid;
+}
+
+#upload-post-button {
+    background-color: dodgerblue;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 8px;
+    transition: .3s;
+}
+
+#upload-post-button:hover {
+    cursor: pointer;
+    background-color: rgb(0, 70, 144);
+    transition: .3s;
+}
