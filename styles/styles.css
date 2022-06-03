@@ -249,7 +249,6 @@ body {
     width: 300px;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 2px red solid;
 }
 
 #profile-header h1 {
@@ -263,5 +262,40 @@ body {
 }
 
 #send-request {
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
 
+#block {
+    border: none;
+    background-color: crimson;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#block:hover, #send-request:hover {
+    cursor: pointer;
+}
+
+#friends-count {
+    width: fit-content;
+}
+
+#friends-count:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+    #profile-header {
+        flex-direction: column;
+    }
+    #friends-count, #profile-info h1 {
+        text-align: center;
+        width: 100%;
+    }
 }
