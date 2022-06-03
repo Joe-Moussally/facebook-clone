@@ -351,8 +351,11 @@ ul {
     font-weight: 500;
 }
 
-.like-comment {
-    margin: 7px 0;
+.like-comment{
+    width: 22%;
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
 }
 
 .post-comments {

@@ -5,6 +5,7 @@ let user_id = localStorage.getItem('user_id')
 
 //----------Adding visit user profile on click-----------
 let profiles = document.getElementsByClassName('profile');
+console.log(profiles)
 
 for (let i=0; i<profiles.length; i++) {
     profiles[i].addEventListener('click', () => {
