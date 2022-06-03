@@ -11,8 +11,10 @@ document.onload = (
     }).then((Response) => {
         //populate HTML here
         //------------------
-        console.log(Response.data)
+        
+
+        }
         //on succesful response get number of friends
 
-    })
+    )
 )
