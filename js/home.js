@@ -12,4 +12,3 @@ for (let i=0; i<profiles.length; i++) {
         window.location.replace("http://facebook/html/profile.html");
     })
 }
-

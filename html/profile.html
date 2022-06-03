@@ -13,9 +13,9 @@
     <div id="profile-container">
         
         <div id="profile-header">
-            <img src="../db/assets/profile_picture.jpg" id="profile-picture">
+            <img src="" id="profile-picture-header">
             <div id="profile-info">
-                <h1>Username</h1>
+                <h1 id="profile-username">Username</h1>
                 <p id="friends-count">3 friends</p>
                 <div id="profile-buttons-container">
                     <button id="send-request">Send friend request</button>
@@ -24,9 +24,62 @@
             </div>
         </div>
 
+        <div class="hr"></div>
+
+        <div id="posts-container">
+            <ul id="posts-container-ul">
+
+                <li id="1">
+                    <div class="post-header">
+                        <img src="../db/posts/2.jpg" id="post-header-profile-picture">
+                        <h2 >USERNAME</h2>
+                    </div>
+                    
+                    <img src="../db/posts/1.jpg" alt="" class="post-photo">
+
+                    <div class="post-body">
+
+                        <div class="like-comment">
+                            <i class="fa-regular fa-heart"></i>
+                            <i class="fa-regular fa-comment"></i>
+                            <span class="post-likes">16 likes</span>
+                        </div>
+
+                        <div class="post-description">
+                            <span class="post-description-username">Username</span>
+                            <span class="post-description">You look amazing!</span>
+                        </div>
+
+                        <div class="add-comment">
+                            <!-- <input type="text" class="comments"> -->
+                        </div>
+
+                        
+                        <div class="post-comments">
+
+                            <span class="comment-label">Comments</span>
+
+                            <ul class="post-comments-ul">
+                                
+                                <li>
+                                    <span class="post-comment-username">sheldon</span>
+                                    <span class="post-comment">Livelong and prosper</span>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                    
+                </li>
+
+            </ul>
+        </div>
+
     </div>
 
 </body>
 </html>
 
+<script src="https://kit.fontawesome.com/559b0c66a2.js" crossorigin="anonymous"></script>
 <script src="../js/profile.js"></script>
