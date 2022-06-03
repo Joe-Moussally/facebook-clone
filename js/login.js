@@ -29,10 +29,8 @@ document.getElementById("login-btn").addEventListener("click", (event) => {
             if (result.response == 'not found') {
                 document.getElementById("email").value = ''
                 document.getElementById("password").value = ''
-                statusDiv.innerHTML = 'email/password is incorrect'
+                statusDiv.innerHTML = 'email or password is incorrect'
             } else if (result.response == 'success') {
-                console.log(response)
-                
                 let id = result.user_id;
                 window.localStorage.setItem('user_id', id);
                 window.location.replace("http://facebook/html/home.html");
