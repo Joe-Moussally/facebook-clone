@@ -41,9 +41,30 @@ axios({
 
     //populating ul
     Response.data.forEach((post) => {
-        postsUl.innerHTML += '<li id="'+post.id+'"'+
+        postsUl.innerHTML += '<li id="'+post.post_id+'">'+
         '<div class="post-header">'+
-        '<img src="../db/posts/2.jpg">'
+        '<img src="'+post.profile_picture+'" class="post-header-img">'+
+        '<h2>'+post.username+'</h2></div>'+
+        '<img src="'+post.photo+'" class="post-photo">'+
+        '<div class="post-body">'+
+        '<div class="like-comment">'+
+        '<span class="like"><i class="fa-regular fa-heart"></i></span>'+
+        '<span class="comment"><i class="fa-regular fa-comment"></i></span>'+
+        '<span class="post-likes">'+post.likes+' likes</span></div>'+
+        '<div class="post-description">'+
+        '<span class="post-description-username">'+post.username+'</span>'+
+        '<span class="post-description">'+post.description+'</span></div>'+
+        '<div class="add-comment"></div>'+
+        '<div class="post-comments">'+
+        '<span class="comment-label">Comments</span>'+
+        '<ul class="post-comments-ul">'+
+        '<li>'+
+        '<span class="post-comment-username">sheldon</span>'+
+        '<span class="post-comment">Livelong and prosper</span>'+
+        '</li></ul></div>'+
+        '<div class="post-footer">'+post.created_at+'</div>'+
+        '</div><div class="hr"></div></li>'
+
     })
 
 })
