@@ -379,3 +379,11 @@ ul {
 .post-photo {
     border-radius: 10px;
 }
+
+.post-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-style: italic;
+    font-size: 14px;
+}
