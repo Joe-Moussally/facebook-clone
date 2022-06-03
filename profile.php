@@ -4,7 +4,7 @@ include("connection.php");
 
 $id = $_POST["id"];
 
-$query = $mysqli->prepare("SELECT id, username, email, profile_picture from users where id = ?");
+$query = $mysqli->prepare("SELECT users.id, users.username, users.email, users.profile_picture, COUNT(friends.user_id2) from users INNER JOIN friends ON users.id = friends.user_id1 where users.id = ?");
 
 $query->bind_param("i", $id);
 $query->execute();
