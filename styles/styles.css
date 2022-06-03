@@ -390,3 +390,24 @@ ul {
     font-style: italic;
     font-size: 14px;
 }
+
+#profile-header-add {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#add-post, #add-status {
+    border: none;
+    background-color: rgb(59, 87, 137);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+#add-post:hover, #add-status:hover {
+    cursor: pointer;
+    background-color: rgb(21, 22, 83);
+    transition: .3s;
+}
