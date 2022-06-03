@@ -163,72 +163,6 @@ body {
     font-size: 14px;
 }
 
-/*--------------FOOTER SECTION--------------*/
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    color: #737373;
-    width: 100%;
-    font-size: 12px;
-    padding: 20px 0;
-}
-
-footer > div {
-    width: 60%;
-}
-
-#footer-languages {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    width: 100%;
-    margin: 0 auto;
-    align-items: center;
-}
-
-footer li {
-    margin: 0 5px;
-}
-
-footer li:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-footer button {
-    background-color: #f0f2f5;
-    border:1px grey solid;
-    width: 32px;
-    height: 22px;
-    border-radius: 2px;
-    color: gray;
-    font-size: 20px;
-    transition: ease.5s;
-}
-
-footer button:hover {
-    background-color: #73737336;
-    cursor: pointer;
-    transition: ease .5s;
-}
-
-#footer-settings {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#footer-settings > li {
-    margin: 5px 10px;
-}
-
-footer section {
-    margin: 20px 0 0 10px;
-}
-
 /*--------------media queries--------------*/
 @media screen and (max-width: 998px) {
     #hero > p {
@@ -277,3 +211,12 @@ footer section {
     color: white;
 }
 
+/* ---------------------------------PROFILE---------------------------------
+---------------------------------------------------------------------------- */
+
+#profile-container {
+    width: 80%;
+    min-width: 500px;
+    border: 1px gray solid;
+    background-color: white;
+}
