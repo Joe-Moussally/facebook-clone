@@ -1,12 +1,15 @@
 /*---------------Global CSS---------------*/
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Helvetica, sans-serif;
-     --fontcolor: #1c1e21; /*font color*/
+    font-family: 'Quicksand', sans-serif;;
+     --fontcolor: #333333; /*font color*/
     --bgcolor: #f0f2f5; /*background color*/
+    font-size: 21px;
 }
 
 
@@ -243,6 +246,7 @@ body {
 #profile-info {
     height: 200px;
     display: flex;
+    width: 300px;
     flex-direction: column;
     justify-content: space-evenly;
     border: 2px red solid;
@@ -250,4 +254,14 @@ body {
 
 #profile-header h1 {
     font-size: 43px;
+    color: var(--fontcolor);
+}
+
+#profile-buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#send-request {
+
 }
