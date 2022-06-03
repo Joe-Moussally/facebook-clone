@@ -217,6 +217,15 @@ body {
 #profile-container {
     width: 80%;
     min-width: 500px;
-    border: 1px gray solid;
+    max-width: 860px;
     background-color: white;
+    padding: 25px;
+}
+
+#profile-header img {
+    width: 200px;
+    border-radius: 50%;
+    border: 2px white solid;
+    outline: 2px dodgerblue solid;
+    object-fit: cover;
 }
