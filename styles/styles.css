@@ -343,12 +343,31 @@ ul {
     margin-left: 10px;
 }
 
+.delete-post-button {
+    border: none;
+    margin-left: auto;
+    border-radius: 5px;
+    background-color: rgb(158, 0, 32);
+    color: white;
+    padding: 5px 8px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.delete-post-button:hover {
+    cursor: pointer;
+    transition: .3s;
+    border: 2px rgb(158, 0, 32) solid;
+    background-color: white;
+    color: rgb(158, 0, 32);
+}
 .post-photo {
     width: 100%;
 }
 
 .post-description-username {
     font-weight: 500;
+    margin-right: 7px;
 }
 
 .like-comment{

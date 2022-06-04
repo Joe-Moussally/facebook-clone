@@ -54,7 +54,7 @@ axios({
         postsUl.innerHTML += '<li id="'+post.post_id+'">'+
         '<div class="post-header">'+
         '<img src="'+post.profile_picture+'" class="post-header-img">'+
-        '<h2>'+post.username+'</h2></div>'+
+        '<h2>'+post.username+'</h2><button class="delete-post-button">Delete post</button></div>'+
         '<img src="'+post.photo+'" class="post-photo">'+
         '<div class="post-body">'+
         '<div class="like-comment">'+
@@ -69,7 +69,40 @@ axios({
         '<span class="comment-label">Comments</span>'+
         '<ul class="post-comments-ul" id="'+post.post_id+'-comments">'+
         '</ul></div><div class="post-footer">'+post.created_at+'</div>'+
-        '</div><div class="hr"></div></li>'
+        '</div><div class="hr"></div></li>';
+
+    })
+
+    //adding delete button functionality
+    let deleteButton = $('.delete-post-button');
+    $(deleteButton).on('click', (e) => {
+        console.log($(e.currentTarget).parent().parent()[0].id)
+        let li = $(e.currentTarget).parent().parent()[0]
+        let post_id = $(e.currentTarget).parent().parent()[0].id
+        $(li).fadeOut(200);
+
+        let data = new FormData()
+        data.append('post_id',post_id);
+
+        axios({
+            method: 'POST',
+            url: 'http://facebook/delete_post.php',
+            data: data
+
+        }).then((Response) => {
+            console.log("DELETED")
+            
+            
+        })
+
     })
     
+})
+
+
+
+
+//upload post-----------------------
+document.getElementById('add-post').addEventListener('click',()=>{
+    window.location.replace('http://facebook/html/add_post.html')
 })
