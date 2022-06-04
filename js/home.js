@@ -24,7 +24,7 @@ axios({
         posts_ul.innerHTML += '<li id="'+post.post_id+'">'+
         '<div class="post-header">'+
         '<img src="'+post.profile_picture+'" class="post-header-img">'+
-        '<h2>'+post.username+'</h2></div>'+
+        '<h2 onclick = "visitProfile(event.currentTarget)" id="'+post.user_id+'">'+post.username+'</h2></div>'+
         '<img src="'+post.photo+'" class="post-photo">'+
         '<div class="post-body">'+
         '<div class="like-comment">'+
@@ -44,14 +44,8 @@ axios({
 });
 
 //----------Adding visit user profile on click-----------
-let profiles = document.getElementsByClassName('profile');
-console.log(user_id)
-
-for (let i=0; i<profiles.length; i++) {
-    console.log(profiles[i].id)
-    profiles[i].addEventListener('click', () => {
-        localStorage.setItem('profile_id',profiles[i].id)
-        console.log("PROF ID",localStorage.getItem('profile_id'))
-        window.location.replace("http://facebook/html/profile.html");
-    })
+const visitProfile = (h2) => {
+    console.log(h2.id)
+    localStorage.setItem('profile_id',h2.id)
+    window.location.replace('http://facebook/html/profile.html')
 }
