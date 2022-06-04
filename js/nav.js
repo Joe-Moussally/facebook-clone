@@ -13,3 +13,12 @@ axios({
     console.log(Response.data[0].id)
     profile_nav.parentElement.id = Response.data[0].id
 })
+
+//adding logout
+document.getElementById('logout').addEventListener('click', () => {
+
+    axios({
+        method: 'POST',
+    })
+
+})

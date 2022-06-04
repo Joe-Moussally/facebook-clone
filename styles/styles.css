@@ -523,7 +523,7 @@ ul {
 /*------------------NAVBAR----------------------------*/
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: rgb(37, 132, 226);
+    background-color: rgb(0, 112, 224);
     overflow: hidden;
     width: 100%;
     display: flex;
