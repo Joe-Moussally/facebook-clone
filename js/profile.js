@@ -106,3 +106,12 @@ axios({
 document.getElementById('add-post').addEventListener('click',()=>{
     window.location.replace('http://facebook/html/add_post.html')
 })
+
+//Adding event listener to friends list
+let friends = document.getElementById('friends-count')
+
+console.log(friends)
+
+friends.addEventListener('click', () => {
+    window.location.replace('http://facebook/html/friends_list.html')
+})
