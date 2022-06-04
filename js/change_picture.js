@@ -1,7 +1,7 @@
-const photo = document.getElementById('photo');
-let url = 'http://facebook/add_post.php'
-let userId = localStorage.getItem('user_id');
-var base64;
+let photo = document.getElementById('photo');
+let url2 = 'http://facebook/change_picture.php'
+let user_id_picture = localStorage.getItem('user_id');
+let base64;
 
 
 //adding event listener to uplaod button
@@ -21,17 +21,15 @@ document.getElementById('upload-post-button').addEventListener('click',function(
     toBase64(uploadedFile)
     .then(res => {
         console.log(res)
-        let description = document.getElementById('description-text').value;
 
-        let data = new FormData();
-        data.append('description',description);
-        data.append('user_id',userId)
-        data.append('base64',res)
+        let data2 = new FormData();
+        data2.append('user_id',user_id_picture)
+        data2.append('base64',res)
     
         axios({
             method: 'POST',
-            url: url,
-            data:data,
+            url: url2,
+            data:data2,
         }).then((Response) => {
             window.location.replace('http://facebook/html/home.html')
         })

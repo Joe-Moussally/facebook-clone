@@ -1,10 +1,10 @@
-let profile_id = localStorage.getItem('profile_id');
+let profile_id_list = localStorage.getItem('profile_id');
 let friends_ul = document.getElementById('friends-list-ul');
 
 console.log(friends_ul)
 
 let data = new FormData()
-data.append('profile_id',profile_id)
+data.append('profile_id',profile_id_list)
 
 axios({
     method: 'POST',

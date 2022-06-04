@@ -1,4 +1,5 @@
 let profileId = localStorage.getItem('profile_id') //getting id of profile clicked on
+let user_id = localStorage.getItem('user_id');
 let url1 = 'http://facebook/profile.php';
 let url2 = 'http://facebook/get_profile_posts.php'
 let url3 = 'http://facebook/get_post_comments.php'
@@ -73,6 +74,25 @@ axios({
 
     })
 
+    //managin and hiding buttons in profile
+    if (user_id != profileId) {
+        
+        document.getElementById('hr1').style.display = 'none';
+        document.getElementById('add-post').style.display = 'none';
+        document.getElementById('add-status').style.display = 'none';
+        document.getElementById('change-picture').style.display = 'none';
+        document.getElementById('add-status').style.display = 'none';
+
+       let del_buttons = document.getElementsByClassName('delete-post-button');
+
+       Array.from(del_buttons).forEach((button) => {
+        button.style.display = 'none';
+      });
+    } else if (user_id == profileId) {
+        document.getElementById('send-request').style.display = 'none';
+        document.getElementById('block').style.display = 'none';
+    }
+
     //adding delete button functionality
     let deleteButton = $('.delete-post-button');
     $(deleteButton).on('click', (e) => {
@@ -114,4 +134,9 @@ console.log(friends)
 
 friends.addEventListener('click', () => {
     window.location.replace('http://facebook/html/friends_list.html')
+})
+
+//redirect to change picture
+document.getElementById('change-picture').addEventListener('click', () => {
+    window.location.replace('http://facebook/html/change_picture.html');
 })

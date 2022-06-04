@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="../styles/styles.css">
-    <title>Friends List</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Add Post</title>
 </head>
 
 <div class="topnav">
     <div id="brand">Facebook</div>
     <input type="text" placeholder="Search" id="nav-search">
     <div id="nav-icons-container">
-        <div id="home-nav"><a class="active" href="http://facebook/html/home.html"><span><i class="fa-solid fa-house"></i>Home</span></a></div>
+        <div id="home-nav"><a href="http://facebook/html/home.html"><span><i class="fa-solid fa-house"></i>Home</span></a></div>
         <div id="add-post-nav"><a href="http://facebook/html/add_post.html"><span><i class="fa-solid fa-plus"></i>Add Post</span></a></div>
         <div class="no-effect-nav"><a href="http://facebook/html/profile.html" class="no-effect-nav"><img src="" id="profile-nav"></a></div>
         <div id="logout"><a>Log Out</a></div>
@@ -22,25 +22,17 @@
 
 <body>
     <div id="container">
-        <h1 id="friends-list-title">Friends List</h1>
+        <h1 id="new-post">Change Picture</h1>
 
-        <ul id="friends-list-ul">
+        <div id="choose-photo">
+            <h2><label for="photo">Choose Photo:</label></h2>
+            <input type="file" id="photo" name="photo">
+        </div>
 
-            <!-- <li class="friend-li">
-                <img src="../db/assets/profile_picture.jpg" alt="">
-                <span>Suername</span>
-            </li>
-
-            <li class="friend-li">
-                <img src="../db/assets/profile_picture.jpg" alt="">
-                <span>Suername</span>
-            </li> -->
-
-        </ul>
+        <button id="upload-post-button" type="submit"><i class="fa-solid fa-upload" style="margin: 0 10px;"></i>Upload Photo</button>
     </div>
 </body>
 </html>
-
-<script src="https://kit.fontawesome.com/559b0c66a2.js" crossorigin="anonymous"></script>
 <script src="../js/nav.js"></script>
-<script src="../js/friends_list.js"></script>
+<script src="../js/change_picture.js"></script>
+<script src="https://kit.fontawesome.com/559b0c66a2.js" crossorigin="anonymous"></script>

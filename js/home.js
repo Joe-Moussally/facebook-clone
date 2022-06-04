@@ -1,6 +1,10 @@
 let user_id = localStorage.getItem('user_id');
 let posts_ul = document.getElementById('feed-posts-ul');
 
+if (user_id == null) {
+    window.location.replace('http://facebook/html/login.html')
+}
+
 let data = new FormData();
 data.append('user_id',user_id);
 
@@ -28,9 +32,9 @@ axios({
         '<img src="'+post.photo+'" class="post-photo">'+
         '<div class="post-body">'+
         '<div class="like-comment">'+
-        '<span class="like"><i class="fa-regular fa-heart"></i></span>'+
+        '<span class="like" onclick = handleLike(event.currentTarget)><i class="fa-regular fa-heart"></i></span>'+
         '<span class="comment"><i class="fa-regular fa-comment"></i></span>'+
-        '<span class="post-likes">'+post.likes+' likes</span></div>'+
+        '<span class="post-likes"><span>'+post.likes+'</span> likes</span></div>'+
         '<div class="post-description">'+
         '<span class="post-description-username">'+post.username+'</span>'+
         '<span class="post-description">'+post.description+'</span></div>'+
@@ -48,4 +52,35 @@ const visitProfile = (h2) => {
     console.log(h2.id)
     localStorage.setItem('profile_id',h2.id)
     window.location.replace('http://facebook/html/profile.html')
+}
+
+//---------ADDING LIKE FUNCTIONALITY-----------
+const handleLike = (button) => {
+    //getting the post id and like count
+    let post_liked = button.parentElement.parentElement.parentElement;
+    let like_count = button.nextElementSibling.nextElementSibling.children[0];
+    let post_liked_id = button.parentElement.parentElement.parentElement.id;
+
+    let like_count_int = Number(like_count.innerHTML)
+
+    console.log(like_count_int)
+    let post_data = new FormData()
+    post_data.append('post_id', post_liked_id)
+
+    if(button.parentElement.parentElement.parentElement.classList.contains('liked')) {
+        post_liked.classList.remove('liked');
+
+        $(like_count).html(like_count_int - 1)
+
+    } else {
+        post_liked.classList.add('liked');
+        $(like_count).html(like_count_int + 1)
+
+        axios({
+            method: 'POST',
+            url: '',
+            data: post_data
+        })
+
+    }
 }

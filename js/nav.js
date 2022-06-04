@@ -1,6 +1,7 @@
 let profile_nav = document.getElementById('profile-nav');
 let logged_in_id = localStorage.getItem('user_id');
 let datanav = new FormData();
+let profile_id = localStorage.getItem('profile_id')
 
 datanav.append('id',logged_in_id);
 
@@ -22,9 +23,11 @@ profile_nav.addEventListener('click', () => {
 //adding logout
 document.getElementById('logout').addEventListener('click', () => {
 
-    axios({
-        method: 'POST',
-        url: 'http://facebook/logout.php'
-    })
-
+    localStorage.setItem('user_id',null);
+    window.location.replace('http://facebook/html/login.html')
 })
+
+//visiting other profiles
+if (logged_in_id != profile_id) {
+    document.getElementsByClassName('active')[0].className = 'no-effect-nav';
+}
