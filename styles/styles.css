@@ -21,7 +21,7 @@ body {
     justify-content: center;
 }
 
-#container {
+/* #container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -29,7 +29,7 @@ body {
     align-items: center;
     width: 100%;
     margin-bottom: 200px;
-}
+} */
 /* ---------------------------------SIGNUP---------------------------------
 ------------------------------------------------------------------------ */
 
@@ -227,6 +227,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-top: 75px;
 }
 
 #profile-header img {
@@ -522,29 +523,102 @@ ul {
 /*------------------NAVBAR----------------------------*/
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background-color: rgb(37, 132, 226);
     overflow: hidden;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.253);
+    flex-wrap: wrap;
+    height: 70px;
+  }
+
+  #brand {
+      color: white;
+      font-weight: 800;
+      font-size: 43px;
+      margin-left: 20px;
+  }
+
+  #nav-icons-container {
+      display: flex;
+      align-items: center;
   }
   
   /* Style the links inside the navigation bar */
   .topnav a {
+      margin: 0 4px;
+      border-radius: 7px;
+      height: 100%;
     float: left;
-    color: #f2f2f2;
+    color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 4px;
     text-decoration: none;
     font-size: 17px;
+    transition: .3s;
   }
   
   /* Change the color of links on hover */
   .topnav a:hover {
-    background-color: #ddd;
+      transition: .3s;
+    background-color: rgb(255, 255, 255);
     color: black;
+  }
+
+  .no-effect-nav:hover {
+      background-color: rgb(0,0,0,0) !important;
+      cursor: pointer;
   }
   
   /* Add a color to the active/current link */
   .topnav a.active {
-    background-color: #04AA6D;
+    background-color: rgb(0, 58, 116);
     color: white;
+  }
+
+  .topnav i {
+      margin: 0 4px;
+  }
+
+  .topnav input {
+      height: 42px;
+      padding: 7px;
+      padding-right: 40px;
+      margin-right: 10px;
+      border: 1.5px rgba(43, 43, 43, 0.3) solid;
+      border-radius: 7px;
+      background-color: rgb(239, 239, 239);
+  }
+
+  .topnav input:focus {
+      outline: 2px rgba(255, 255, 255, 0.275) solid;
+  }
+
+  #profile-nav {
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: 1px white solid;
+    border: 1px dodgerblue solid;
+    object-fit: cover;
+    transform: translateY(2px);
+  }
+
+  #logout {
+      transition: .2s;
+  }
+
+  #logout a:hover {
+      font-size: 21px;
+      font-weight: 600;
+      color: rgb(255, 54, 94);
+      cursor: pointer !important;
+      text-decoration: underline !important;
+      transition: .2s !important;
+      background-color: rgba(255, 255, 255, 0) !important;
   }
