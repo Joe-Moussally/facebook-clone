@@ -227,7 +227,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-top: 75px;
+    padding-top: 85px;
 }
 
 #profile-header img {
@@ -533,7 +533,6 @@ ul {
     top: 0;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.253);
     flex-wrap: wrap;
-    height: 70px;
   }
 
   #brand {
@@ -598,8 +597,12 @@ ul {
       outline: 2px rgba(255, 255, 255, 0.275) solid;
   }
 
-  #profile-nav {
+.topnav div {
+    z-index: 1;
+}
 
+  #profile-nav {
+    z-index: -1;
     width: 40px;
     height: 40px;
     border-radius: 50%;
