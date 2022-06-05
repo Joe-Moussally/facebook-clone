@@ -331,7 +331,26 @@ axios({
 
 }
 
+//HIDING Requests for non users
+if (user_id != profileId) {document.getElementById('add-status').style.display = 'none';}
 
 
+//BLOCK FUNCTIONALITY
+document.getElementById('block').addEventListener('click', () => {
 
+    let user_id = localStorage.getItem('user_id');
+    let profile_id = localStorage.getItem('profile_id');
 
+    let block_data = new FormData();
+    block_data.append('user_id',user_id);
+    block_data.append('profile_id',profile_id);
+
+    axios({
+        method:"POST",
+        url: 'http://facebook/block.php',
+        data: block_data
+    }).then((Response) => {
+        window.location.replace('http://facebook/html/home.html')
+    })
+
+})

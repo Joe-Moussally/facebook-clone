@@ -6,6 +6,7 @@ const get_result = (value) => {
     search_ul.innerHTML = '';
     let data = new FormData();
     data.append('name',value);
+    // data.append('user_id',localStorage.getItem('user_id'));
 
 
     if (value != '') {
