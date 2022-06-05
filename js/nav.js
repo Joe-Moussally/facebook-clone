@@ -23,7 +23,7 @@ profile_nav.addEventListener('click', () => {
 //adding logout
 document.getElementById('logout').addEventListener('click', () => {
 
-    localStorage.setItem('user_id',null);
+    // localStorage.setItem('user_id',null);
     window.location.replace('http://facebook/html/login.html')
 })
 

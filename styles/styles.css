@@ -257,6 +257,7 @@ body {
 
 #profile-header h1 {
     font-size: 43px;
+    
     color: var(--fontcolor);
 }
 
@@ -271,6 +272,7 @@ body {
     color: white;
     padding: 5px 10px;
     border-radius: 4px;
+    transition: .3s;
 }
 
 #block {
@@ -279,6 +281,28 @@ body {
     color: white;
     padding: 5px 10px;
     border-radius: 4px;
+}
+
+#remove-friend {
+    border: 2px gray solid;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: white;
+    color: gray;
+    transition: .3s;
+}
+
+#pending {
+    border: 2px gray solid;
+    border-radius: 4px;
+    padding: 5px 10px;
+    background-color: white;
+    color: gray;
+    transition: .3s;
+}
+
+#remove-friend:hover {
+    cursor: pointer;
 }
 
 #block:hover, #send-request:hover {
@@ -601,6 +625,21 @@ ul {
     z-index: 1;
 }
 
+@media screen and (max-width:922px) {
+    #brand{
+        display: none;
+    }
+    .topnav>div {
+        margin: 0 5px;
+    }
+    .nav-titles {
+        display: none;
+    }
+    .topnav input {
+        width: 200px;
+    }
+}
+
   #profile-nav {
     z-index: -1;
     width: 40px;
@@ -624,4 +663,119 @@ ul {
       text-decoration: underline !important;
       transition: .2s !important;
       background-color: rgba(255, 255, 255, 0) !important;
+  }
+
+  /*------------------SEARCH----------------------------*/
+
+  #search-output {
+      width: 300px;
+      height: fit-content;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.133);
+      position: fixed;
+      display: flex;
+      border-radius: 5px;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  #search-output span {
+      margin-left: 7px;
+      font-weight: 400;
+  }
+
+  #search-output span:hover{
+      text-decoration: underline;
+      cursor: pointer;
+  }
+
+  #search-output img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: 1px white solid;
+    border: 1px dodgerblue solid;
+    object-fit: cover;
+  }
+
+  #search-output li {
+    display: flex;
+    align-items: center;
+    margin: 9px 0px;
+    padding-bottom: 7px;
+    width: 95%;
+    padding-left: 8px;
+    border-bottom:.7px gray solid ;
+  }
+
+  /*Friend requests*/
+  #requests {
+      width: 100%;
+  }
+  
+  #requests li {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px gray solid;
+  }
+
+  #requests img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    outline: 1px white solid;
+    border: 1px dodgerblue solid;
+    object-fit: cover;
+  }
+
+  .accept {
+      margin-left: auto;
+      margin-right: 10px;
+      background-color: rgb(30, 255, 68);
+        color: white;
+        font-weight: 500;
+        border: none;
+        border-radius: 7px;
+        padding: 5px 8px;
+        transition: .3s;
+  }
+
+  .reject {
+    background-color: rgb(255, 30, 56);
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 8px;
+    transition: .3s;
+  }
+
+  .accept:hover, .reject:hover {
+      cursor: pointer;
+  }
+
+  textarea {
+      max-width: 90%;
+      min-width: 90%;
+      min-height: 120px;
+      max-height: 120px;
+      padding: 5px;
+      margin-top: 20px;
+  }
+
+  #submit-comment {
+    background-color: dodgerblue;
+    color: white;
+    font-weight: 500;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 8px;
+    transition: .3s;
+  }
+
+  #submit-comment:hover {
+      cursor: pointer;
   }

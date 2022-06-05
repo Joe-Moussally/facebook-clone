@@ -28,6 +28,8 @@ document.onload = (
     }).then((Response) => {
         //populate HTML here
         //------------------
+
+        console.log("HEADERRR",Response.data[0])
         username.innerHTML = Response.data[0].username;
         profilePicture.src = Response.data[0].profile_picture;
         friendsCount.innerHTML = Response.data[0].friends + ' friends';
@@ -42,13 +44,12 @@ axios({
 }).then((Response) => {
     console.log(Response.data)
 
+    
+
     //populating ul
     Response.data.forEach((post) => {
 
         let postId = post.post_id;
-
-        let data = new FormData()
-        data.append('post_id',postId)
 
         
 
@@ -73,6 +74,8 @@ axios({
         '</div><div class="hr"></div></li>';
 
     })
+
+
 
     //managin and hiding buttons in profile
     if (user_id != profileId) {
@@ -112,15 +115,38 @@ axios({
         }).then((Response) => {
             console.log("DELETED")
             
-            
         })
 
     })
-    
+    get_post_comments()
+    checkFriends()
 })
 
 
+const get_post_comments = () => {
 
+    let li_posts = document.getElementsByTagName('li');
+
+    for (let i=0; i<li_posts.length; i++) {
+        let ul_comment = document.getElementById(li_posts[i].id+'-comments')
+        let comment_data = new FormData();
+        comment_data.append('id',li_posts[i].id);
+
+        axios({
+            method: 'POST',
+            url: 'http://facebook/get_post_comments.php',
+            data: comment_data
+        }).then((Response) => {
+            Response.data.forEach((comment) =>{
+                ul_comment.innerHTML += '<li>'+
+                '<span class="post-comment-username">'+comment.username+'</span>'+
+                '<span class="post-comment">'+comment.text+'</span>'+
+                '</li>'
+            })
+        })
+    }
+    
+}
 
 //upload post-----------------------
 document.getElementById('add-post').addEventListener('click',()=>{
@@ -140,3 +166,172 @@ friends.addEventListener('click', () => {
 document.getElementById('change-picture').addEventListener('click', () => {
     window.location.replace('http://facebook/html/change_picture.html');
 })
+
+const checkFriends = () => {
+    //checking if users are friends
+    let friends_data = new FormData();
+    friends_data.append('user_id', localStorage.getItem('user_id'));
+    friends_data.append('profile_id', localStorage.getItem('profile_id'));
+    axios({
+        method: 'POST',
+        url: 'http://facebook/check_friends.php',
+        data: friends_data
+    }).then((Response) => {
+        console.log(Response.data.friends)
+        let are_friends = Response.data.friends;
+        if (are_friends == 'true') {
+
+            document.getElementById('send-request').innerHTML = 'Remove friends'
+            document.getElementById('send-request').id = 'remove-friend';
+            
+
+            document.getElementById('remove-friend').addEventListener('click', () => {
+
+                let data = new FormData();
+                data.append('user_id',localStorage.getItem('user_id'));
+                data.append('profile_id',localStorage.getItem('profile_id'));
+
+                axios({
+                    method: 'POST',
+                    url: 'http://facebook/remove_friend.php',
+                    data: data
+                }).then((Response) => {
+                    document.getElementById('remove-friend').id = 'send-request';
+                })
+            })
+        }
+    })
+
+    //on pending friend request
+    let pending_data = new FormData();
+    pending_data.append('user_id', localStorage.getItem('user_id'));
+    pending_data.append('profile_id', localStorage.getItem('profile_id'));
+    axios({
+        method: 'POST',
+        url: 'http://facebook/check_pending.php',
+        data: friends_data
+    }).then((Response) => {
+        console.log('friend request pending: ',Response.data.pending)
+        let is_pending = Response.data.pending;
+        if (is_pending == 'true') {
+
+            document.getElementById('send-request').id = 'pending';
+            document.getElementById('remove-friend').innerHTML = 'Request sent'
+
+            document.getElementById('remove-friend').addEventListener('click', () => {
+
+                let data = new FormData();
+                data.append('user_id',localStorage.getItem('user_id'));
+                data.append('profile_id',localStorage.getItem('profile_id'));
+
+                axios({
+                    method: 'POST',
+                    url: 'http://facebook/remove_friend.php',
+                    data: data
+                }).then((Response) => {
+                    document.getElementById('remove-friend').id = 'send-request';
+                })
+            })
+}})
+
+//sending friend request
+document.getElementById('send-request').addEventListener('click', () => {
+
+    
+    document.getElementById('send-request').id = 'pending'
+    document.getElementById('pending').innerHTML = 'Request sent'
+
+    let data = new FormData();
+    data.append('request_from_id',localStorage.getItem('user_id'));
+    data.append('request_to_id',localStorage.getItem('profile_id'));
+
+    console.log("REMOVE FRIEND",localStorage.getItem('user_id'),localStorage.getItem('profile_id'))
+
+    axios({
+        method: 'POST',
+        url: 'http://facebook/send_request.php',
+        data: data
+    }).then(Response => {
+        console.log(Response)
+    })
+
+})
+
+
+
+//getting requests
+
+let requests_data = new FormData();
+requests_data.append('user_id',localStorage.getItem('user_id'));
+
+axios({
+    method: 'POST',
+    url: 'http://facebook/get_requests.php',
+    data: requests_data
+}).then((Response) => {
+    console.log(Response.data)
+    let requests_ul = document.getElementById('requests');
+    Response.data.forEach((user) => {
+        requests_ul.innerHTML += '<li id="'+user.source+'">'+
+        '<img src="'+user.profile_picture+'">'+
+        '<span>'+user.username+'</span>'+
+        '<button class="accept">Accept</button>'+
+        '<button class="reject">Reject</button></li>'
+    })
+
+    if(localStorage.getItem('user_id') != localStorage.getItem('profile_id')) {
+        document.getElementById('requests').style.display = 'none';
+    }
+
+    //adding event listeners lo accept and reject
+    let accept = document.getElementsByClassName('accept')
+    
+    Array.from(accept).forEach(function (element) {
+        element.addEventListener('click', () => {
+            
+
+            console.log(element.parentElement.id)
+
+            let accept_data = new FormData();
+            accept_data.append('user_id',user_id);
+            accept_data.append('profile_id',element.parentElement.id);
+            axios({
+                method:'POST',
+                url:'http://facebook/accept_request.php',
+                data:accept_data
+            }).then((Response) => {
+                $(element).parent().fadeOut(150);
+            })
+        })
+      });
+
+    let reject = document.getElementsByClassName('reject')
+    
+    Array.from(reject).forEach(function (element) {
+        element.addEventListener('click', () => {
+            
+
+            console.log(element.parentElement.id)
+
+            let reject_data = new FormData();
+            accept_data.append('user_id',user_id);
+            accept_data.append('profile_id',element.parentElement.id);
+            axios({
+                method:'POST',
+                url:'http://facebook/reject_request.php',
+                data:accept_data
+            }).then((Response) => {
+                $(element).parent().fadeOut(150);
+            })
+        })
+      });
+
+})
+
+
+}
+
+
+
+
+

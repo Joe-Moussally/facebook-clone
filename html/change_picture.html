@@ -11,11 +11,19 @@
 
 <div class="topnav">
     <div id="brand">Facebook</div>
-    <input type="text" placeholder="Search" id="nav-search">
+    <div>
+        <input type="text" placeholder="Search" id="nav-search" onkeyup="get_result(event.currentTarget.value)">
+        <ul id="search-output">
+            <!-- <li>
+                <img src="../db/assets/profile_picture.jpg" >
+                <span>Username</span>
+            </li> -->
+        </ul>
+    </div>
     <div id="nav-icons-container">
-        <div id="home-nav"><a href="http://facebook/html/home.html"><span><i class="fa-solid fa-house"></i>Home</span></a></div>
-        <div id="add-post-nav"><a href="http://facebook/html/add_post.html"><span><i class="fa-solid fa-plus"></i>Add Post</span></a></div>
-        <div class="no-effect-nav"><a href="http://facebook/html/profile.html" class="no-effect-nav"><img src="" id="profile-nav"></a></div>
+        <div id="home-nav"><a href="http://facebook/html/home.html"><span><i class="fa-solid fa-house"></i><span class="nav-titles">Home</span></span></a></div>
+        <div id="add-post-nav"><a href="http://facebook/html/add_post.html"><span><i class="fa-solid fa-plus"></i><span class="nav-titles">Add Post</span></span></a></div>
+        <div class="no-effect-nav"><a  class="active" href="http://facebook/html/profile.html" class="no-effect-nav"><img src="" id="profile-nav"></a></div>
         <div id="logout"><a>Log Out</a></div>
     </div>
 </div>
@@ -34,5 +42,6 @@
 </body>
 </html>
 <script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
 <script src="../js/change_picture.js"></script>
 <script src="https://kit.fontawesome.com/559b0c66a2.js" crossorigin="anonymous"></script>

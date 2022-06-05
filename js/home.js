@@ -38,13 +38,14 @@ axios({
         '<div class="post-description">'+
         '<span class="post-description-username">'+post.username+'</span>'+
         '<span class="post-description">'+post.description+'</span></div>'+
-        '<div class="add-comment"></div>'+
+        '<div class="add-comment"><textarea id="comment-input" name="comment" placeholder="Enter you comment here"></textarea><button id="submit-comment" onclick="handle_comment(event.currentTarget)">Submit</button></div>'+
         '<div class="post-comments">'+
         '<span class="comment-label">Comments</span>'+
         '<ul class="post-comments-ul" id="'+post.post_id+'-comments">'+
         '</ul></div><div class="post-footer">'+post.created_at+'</div>'+
         '</div><div class="hr"></div></li>';
     })
+    get_post_comments()
 });
 
 //----------Adding visit user profile on click-----------
@@ -78,9 +79,63 @@ const handleLike = (button) => {
 
         axios({
             method: 'POST',
-            url: '',
+            url: 'http://facebook/add_like.php',
             data: post_data
         })
 
     }
+}
+
+
+//------------HANDLING SUBMIT COMMENT------------------
+const handle_comment = (button) => {
+    let comment = button.previousSibling.value;
+    let post_id = button.parentElement.parentElement.parentElement.id;
+    let user_id = localStorage.getItem('user_id');
+
+    console.log("COMMENT", comment)
+
+    let comment_data = new FormData();
+    comment_data.append('user_id',user_id);
+    comment_data.append('post_id',post_id);
+    comment_data.append('comment',comment);
+
+    axios({
+        method:'POST',
+        url:'http://facebook/submit_comment.php',
+        data:comment_data
+    }).then((Response) => {
+        button.previousSibling.value = '';
+        // let comment_ul = document.getElementById(post_id+'-comments');
+
+        // comment_ul.innerHTML += '<li>'+
+        // '<span class="post-comment-username">'+Response.data+'</span>'
+    })
+}
+
+
+//GET COMMENTS OF POSTS
+const get_post_comments = () => {
+
+    let li_posts = document.getElementsByTagName('li');
+
+    for (let i=0; i<li_posts.length; i++) {
+        let ul_comment = document.getElementById(li_posts[i].id+'-comments')
+        let comment_data = new FormData();
+        comment_data.append('id',li_posts[i].id);
+
+        axios({
+            method: 'POST',
+            url: 'http://facebook/get_post_comments.php',
+            data: comment_data
+        }).then((Response) => {
+            Response.data.forEach((comment) =>{
+                ul_comment.innerHTML += '<li>'+
+                '<span class="post-comment-username">'+comment.username+'</span>'+
+                '<span class="post-comment">'+comment.text+'</span>'+
+                '</li>'
+            })
+        })
+    }
+    
 }
